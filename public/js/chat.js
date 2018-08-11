@@ -68,7 +68,11 @@ socket.on('newLocationMessage', function (message) {
 
     jQuery('#messages').append(html);
     scrollToBottom();
-})
+});
+
+socket.on('roomNameMessage', function (message) {
+    jQuery('#room').text(message.room);
+});
 
 jQuery('#message-form').on('submit', function (e) {
     e.preventDefault();
