@@ -19,8 +19,8 @@ io.on('connection', (socket) => {
     console.log('New user connected');
 
     socket.on('join', (params, callback) => {
-        if (!isRealString(params.name) || !isRealString(params.room)) {
-            return callback('Name and room name are required');
+        if (!isRealString(params.name) || !isRealString(params.room) || !isRealString(params.passcode)) {
+            return callback('Name, room name, and passcode are required');
         }
 
         socket.join(params.room);
